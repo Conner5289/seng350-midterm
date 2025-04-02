@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 
 public class GameAssests {
 
-	public String teamName() {
+	public String makeName() {
 		Faker faker = new Faker();
 		return faker.team().name();
 	}
