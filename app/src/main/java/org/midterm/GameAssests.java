@@ -10,7 +10,7 @@ public class GameAssests {
 		return faker.team().name();
 	}
 
-	public int getScore() {
+	public static int getScore() {
 		Random rand = new Random();
 		return rand.nextInt(40);
 	}

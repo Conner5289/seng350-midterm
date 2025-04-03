@@ -1,9 +1,12 @@
 package org.midterm;
 
-public class GameLogic {
-	private int quarter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GameLogic implements GameSubject {
 	private Team teamOne;
 	private Team teamTwo;
+	private List<ScoreObserver> observers = new ArrayList<>();
 
 	GameAssests assests = new GameAssests();
 
@@ -55,5 +58,32 @@ public class GameLogic {
 			throw new IllegalArgumentException("Invalid team name, getScore");
 		}
 		return name;
+	}
+
+	@Override
+	public void updateObservers() {
+		int teamOneScore = teamOne.getScore();
+		int teamTwoScore = teamTwo.getScore();
+		int[] scoreArray = { teamOneScore, teamTwoScore };
+
+		String teamOneName = teamOne.getName();
+		String teamtwoName = teamTwo.getName();
+		String nameArray[] = { teamOneName, teamtwoName };
+
+		for (ScoreObserver observer : observers) {
+			observer.updateScore(scoreArray);
+			observer.updateName(nameArray);
+		}
+	}
+
+	@Override
+	public void removeObserver(ScoreObserver observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void addObserver(ScoreObserver observer) {
+		observers.add(observer);
+
 	}
 }
