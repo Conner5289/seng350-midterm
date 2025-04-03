@@ -3,6 +3,7 @@ package org.midterm;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -45,4 +46,24 @@ public class dbDriver {
 		}
 	}
 
+	public void getAllTeams() {
+		String sql = "SELECT * FROM teams;";
+
+		try (PreparedStatement pstmt = connection.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+
+			if (!rs.isBeforeFirst()) {
+				System.out.println("There is no team data");
+
+			}
+			while (rs.next()) {
+				String name = rs.getString("name"); // Example column
+				int socre = rs.getInt("score");
+				System.out.println("Name: " + name + " Score: " + socre);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

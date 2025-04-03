@@ -170,7 +170,8 @@ public class GameLoop {
 						break;
 
 					case 6:
-						// TODO: All games
+						// Get all games
+						database.getAllTeams();
 
 						break;
 
