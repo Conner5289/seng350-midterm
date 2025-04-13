@@ -1,7 +1,6 @@
 package org.midterm;
 
 import java.util.Random;
-import com.github.javafaker.Faker;
 
 public class GameAssests {
 
