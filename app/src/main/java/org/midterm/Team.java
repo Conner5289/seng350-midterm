@@ -1,11 +1,14 @@
 package org.midterm;
 
+import com.github.javafaker.Faker;
+
 public class Team {
 	private String name;
 	private int score;
+	private Faker faker = new Faker();
 
-	public Team(String name) {
-		this.name = name;
+	public Team() {
+		this.name = faker.team().name();
 		this.score = 0;
 	}
 
@@ -19,6 +22,10 @@ public class Team {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public void addPoints(int points) {
+		this.score = +points;
 	}
 
 }
