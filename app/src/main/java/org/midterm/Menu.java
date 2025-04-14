@@ -43,13 +43,14 @@ public class Menu {
 	}
 
 	public menuReturnCode duringGameMenu() {
+		BaseGame currentGame = GameManager.getCurrentGame();
 		int userChoice;
 		boolean isChoiceValid = true;
 		do {
 			isChoiceValid = true;
 
 			System.out.println("===== Main Menu =====");
-			System.out.println("It is the end of the quarter");
+			System.out.println("It is the end of " + currentGame.getCurrerntPeriod());
 			System.out.println("1. Sim next quarter");
 			System.out.println("2. Currnet score");
 			System.out.println("3. Predict final score");
@@ -65,12 +66,15 @@ public class Menu {
 				isChoiceValid = false;
 			} else {
 
-				BaseGame currentGame = GameManager.getCurrentGame();
 				ScorePredictor predictor = new ScorePredictor();
 
 				switch (userChoice) {
 					case 1:
 						currentGame.advanceCurrentPeriod();
+						menuReturnCode returnCode = currentGame.advanceCurrentPeriod();
+						if (returnCode == menuReturnCode.GAME_OVER) {
+							return menuReturnCode.GAME_OVER;
+						}
 						return menuReturnCode.GAME_ADVANCE;
 					case 2:
 						currentGame.printSocres();

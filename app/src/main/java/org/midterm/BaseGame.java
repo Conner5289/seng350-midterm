@@ -21,6 +21,10 @@ public abstract class BaseGame {
 		return teamTwo;
 	}
 
+	public int getCurrerntPeriod() {
+		return currentPeriod;
+	}
+
 	public void printSocres() {
 		System.out.println(teamOne.getName() + " has a score of " + teamOne.getScore());
 		System.out.println(teamTwo.getName() + " has a score of " + teamTwo.getScore());
@@ -34,8 +38,6 @@ public abstract class BaseGame {
 		}
 		return menuReturnCode.GAME_GOING;
 	}
-
-	public abstract void playGame();
 
 	public abstract void updateScore();
 
