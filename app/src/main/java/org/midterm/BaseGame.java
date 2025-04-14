@@ -1,12 +1,16 @@
 package org.midterm;
 
 public abstract class BaseGame {
-	private Team teamOne;
-	private Team teamTwo;
+	protected Team teamOne;
+	protected Team teamTwo;
+	protected int currentPeriod;
+	protected int totalPeriod;
+	protected boolean isGamePlaying = true;
 
-	public BaseGame() {
+	public BaseGame(int finalPeriod) {
 		this.teamOne = new Team();
 		this.teamTwo = new Team();
+		this.totalPeriod = finalPeriod;
 	}
 
 	public Team getTeamOne() {
@@ -22,7 +26,19 @@ public abstract class BaseGame {
 		System.out.println(teamTwo.getName() + " has a score of " + teamTwo.getScore());
 	}
 
-	public abstract void playGame();
+	public menuReturnCode advanceCurrentPeriod() {
+		this.currentPeriod++;
+		if (currentPeriod > totalPeriod) {
+			System.out.println("Game is over");
+			return menuReturnCode.GAME_OVER;
+		}
+		return menuReturnCode.GAME_GOING;
+	}
+
+	public abstract boolean playGame();
 
 	public abstract void updateScore();
+
+	public abstract int makeScore();
+
 }
