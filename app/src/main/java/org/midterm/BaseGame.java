@@ -35,7 +35,7 @@ public abstract class BaseGame {
 		return menuReturnCode.GAME_GOING;
 	}
 
-	public abstract boolean playGame();
+	public abstract void playGame();
 
 	public abstract void updateScore();
 

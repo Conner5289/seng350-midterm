@@ -25,7 +25,7 @@ public class ScorePredictor implements ScoreObserver {
 		BaseGame currentGame = GameManager.getCurrentGame();
 
 		int teamOnePrediction = currentGame.getTeamOne().getScore();
-		int teamTwoPrediction = GameAssests.getScore() + teamTwoScore;
+		int teamTwoPrediction = currentGame.getTeamTwo().getScore();
 
 		System.out.println("The system predices that");
 		System.out.println(teamOneName + " will have " + teamOnePrediction);
@@ -34,4 +34,5 @@ public class ScorePredictor implements ScoreObserver {
 		teamOneOldPrediction = teamOnePrediction;
 		teamTwoOldPrediction = teamTwoPrediction;
 	}
+
 }

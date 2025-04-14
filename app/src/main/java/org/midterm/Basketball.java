@@ -22,10 +22,9 @@ public class Basketball extends BaseGame {
 	}
 
 	@Override
-	public boolean playGame() {
+	public void playGame() {
 		super.currentPeriod++;
 		updateScore();
-		return super.IsGameOver();
 	}
 
 	@Override

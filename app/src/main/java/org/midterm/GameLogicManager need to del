@@ -14,7 +14,8 @@ public class GameLogicManager {
 		return gameLogicInstance;
 	}
 
-	apublic static void removeInstance() {
+	public static void removeInstance() {
 		gameLogicInstance = null;
-a
-a
+
+	}
+}

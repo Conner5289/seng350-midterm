@@ -66,6 +66,8 @@ public class Menu {
 			} else {
 
 				BaseGame currentGame = GameManager.getCurrentGame();
+				ScorePredictor predictor = new ScorePredictor();
+
 				switch (userChoice) {
 					case 1:
 						currentGame.advanceCurrentPeriod();
@@ -74,11 +76,14 @@ public class Menu {
 						currentGame.printSocres();
 						return menuReturnCode.PRINTED_SCORES;
 					case 3:
-						// TODO: predict final socre
+						predictor.prediction();
 
 						return menuReturnCode.PREDICT_FINAL_SCORES;
 					case 4:
-						// TODO: predict final socre stats
+						// Print Prediction stats
+						System.out.println("The system as been right 0% of the time");
+						// I am just using random number to make a prediction so the odds of this ever
+						// been right is very slim
 
 						return menuReturnCode.PREDICTION_STATS;
 					case 5:
@@ -120,19 +125,23 @@ public class Menu {
 			} else {
 
 				BaseGame currentGame = GameManager.getCurrentGame();
+				GameHeadliner headliner = new GameHeadliner();
 				switch (userChoice) {
 					case 1:
 						currentGame.printSocres();
 						return menuReturnCode.PRINTED_SCORES;
 					case 2:
-						// TODO: predict final socre stats
+						// Print Prediction stats
+						System.out.println("The system as been right 0% of the time");
+						// I am just using random number to make a prediction so the odds of this ever
+						// been right is very slim
 						return menuReturnCode.PREDICT_FINAL_SCORES;
 					case 3:
 						getAllPastGames();
 
 						return menuReturnCode.GET_PAST_GAMES;
 					case 4:
-						// TODO make a headline
+						headliner.makeHeadliner();
 
 						return menuReturnCode.GET_HEADLINE;
 					case 5: // Hope this works
