@@ -30,14 +30,7 @@ public abstract class BaseGame {
 		System.out.println(teamTwo.getName() + " has a score of " + teamTwo.getScore());
 	}
 
-	public menuReturnCode advanceCurrentPeriod() {
-		this.currentPeriod++;
-		if (currentPeriod > totalPeriod) {
-			System.out.println("Game is over");
-			return menuReturnCode.GAME_OVER;
-		}
-		return menuReturnCode.GAME_GOING;
-	}
+	public abstract menuReturnCode advanceCurrentPeriod();
 
 	public abstract void updateScore();
 

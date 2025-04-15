@@ -26,6 +26,7 @@ public class Basketball extends BaseGame {
 	@Override
 	public menuReturnCode advanceCurrentPeriod() {
 		this.currentPeriod++;
+		updateScore();
 		if (currentPeriod > totalPeriod) {
 			System.out.println("Game is over");
 			return menuReturnCode.GAME_OVER;

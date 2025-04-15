@@ -70,7 +70,6 @@ public class Menu {
 
 				switch (userChoice) {
 					case 1:
-						currentGame.advanceCurrentPeriod();
 						menuReturnCode returnCode = currentGame.advanceCurrentPeriod();
 						if (returnCode == menuReturnCode.GAME_OVER) {
 							return menuReturnCode.GAME_OVER;
