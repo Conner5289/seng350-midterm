@@ -9,7 +9,6 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 	id 'java'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'  // Add this line
 }
 
 repositories {
@@ -24,7 +23,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // This dependency is used by the application.
-    implementation libs.guava
+    'implementation libs.guava'
 
     implementation 'com.github.javafaker:javafaker:1.0.2'
 
@@ -48,7 +47,7 @@ application {
 }
 
 run {
-    standardInput = System.in
+    'standardInput = System.in'
 }
 
 jar {
