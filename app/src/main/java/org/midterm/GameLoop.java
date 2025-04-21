@@ -3,8 +3,6 @@ package org.midterm;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.checkerframework.checker.units.qual.t;
-
 public class GameLoop {
 	public void gameStart() {
 		int quarter = 0;

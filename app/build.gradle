@@ -22,7 +22,6 @@ dependencies {
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // This dependency is used by the application.
     'implementation libs.guava'
 
     implementation 'com.github.javafaker:javafaker:1.0.2'
@@ -47,7 +46,7 @@ application {
 }
 
 run {
-    'standardInput = System.in'
+    standardInput = System.in
 }
 
 jar {
@@ -57,9 +56,4 @@ jar {
 }
 
 
-shadowJar {
-    manifest {
-        attributes 'Main-Class': 'org.midterm.App'  // Main class to run
-    }
-}
 
